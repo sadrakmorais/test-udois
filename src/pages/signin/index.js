@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from './styled';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,6 +11,12 @@ const SignIn = () => {
 	const history = useNavigate();
 
 	const { user, signInWithGoogle } = useAuth();
+
+	useEffect(() => {
+		if (user) {
+			history('/');
+		}
+	}, [user]);
 
 	const handleRegister = () => {
 		history('/cadastrar');

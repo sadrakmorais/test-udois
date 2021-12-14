@@ -7,6 +7,7 @@ import SearchResult from '../pages/search-result';
 import Layout from '../components/Layout';
 import SignIn from '../pages/signin';
 import SignUp from '../pages/signup';
+import AuthorPosts from '../pages/author-posts';
 
 const ApplicationRoutes = () => {
 	return (
@@ -48,6 +49,15 @@ const ApplicationRoutes = () => {
 					element={
 						<Layout>
 							<InfoAuthor />
+						</Layout>
+					}
+				/>
+				<Route
+					exact
+					path='/author/:idauthor/myposts'
+					element={
+						<Layout>
+							<AuthorPosts />
 						</Layout>
 					}
 				/>

@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './styled';
-import Box from '@mui/material/Box';
+import { useNavigate } from 'react-router-dom';
+
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import StoreIcon from '@mui/icons-material/Store';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -17,7 +14,8 @@ import Avatar from '@mui/material/Avatar';
 import { useAuth } from '../../hooks/useAuth';
 
 function Menu() {
-	const { user } = useAuth();
+	const { user, signOut } = useAuth();
+	const history = useNavigate();
 
 	const [state, setState] = useState({
 		left: false,
@@ -31,35 +29,38 @@ function Menu() {
 		setState({ ...state, [anchor]: open });
 	};
 
-	const list = (anchor) => (
-		<Box
-			sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-			role='presentation'
-			onClick={toggleDrawer(anchor, false)}
-			onKeyDown={toggleDrawer(anchor, false)}>
-			<List>
-				{['Compras', 'Vender', 'Configurações', 'Ajuda', 'Sair'].map((text, index) => (
-					<ListItem button key={text}>
-						<ListItemIcon>
-							{text === 'Compras' ? (
-								<ShoppingCartIcon />
-							) : text === 'Vender' ? (
-								<StoreIcon />
-							) : text === 'Configurações' ? (
-								<SettingsIcon />
-							) : text === 'Ajuda' ? (
-								<QuizIcon />
-							) : text === 'Sair' ? (
-								<LogoutIcon />
-							) : (
-								''
-							)}
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItem>
-				))}
-			</List>
-		</Box>
+	const handleTest = async () => {
+		await signOut();
+		document.location.reload(true);
+	};
+
+	const list = () => (
+		<S.WrapperList>
+			<li>
+				<ShoppingCartIcon />
+				Compras
+			</li>
+
+			<li>
+				<StoreIcon />
+				Vendas
+			</li>
+
+			<li>
+				<SettingsIcon />
+				Configurações
+			</li>
+
+			<li>
+				<QuizIcon />
+				Ajuda
+			</li>
+
+			<li onClick={handleTest}>
+				<LogoutIcon />
+				Sair
+			</li>
+		</S.WrapperList>
 	);
 
 	return (

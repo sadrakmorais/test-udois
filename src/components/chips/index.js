@@ -52,7 +52,11 @@ function Chips() {
 			{chips.map((e) => (
 				<Link to={`/search/${e.idS}`}>
 					<div>
-						<Chip label={e.search} sx={{ fontFamily: 'Roboto', fontWeight: 'bold' }} />
+						<Chip
+							key={e.idS}
+							label={e.search}
+							sx={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+						/>
 					</div>
 				</Link>
 			))}

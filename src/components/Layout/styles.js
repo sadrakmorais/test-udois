@@ -12,6 +12,5 @@ export const Workspace = styled.div`
 	background: #fff;
 	height: 100%;
 	overflow-y: auto;
-	padding: 10px 10px 80px 10px;
 	z-index: 1;
 `;

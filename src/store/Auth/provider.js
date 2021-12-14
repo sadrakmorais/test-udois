@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import AuthContext from './context';
-
 import { auth, firebase } from '../../service/firebase';
 
 const AuthProvider = ({ children }) => {
@@ -48,8 +47,12 @@ const AuthProvider = ({ children }) => {
 		}
 	};
 
+	const signOut = async () => {
+		await firebase.auth().signOut();
+	};
+
 	return (
-		<AuthContext.Provider value={{ user, setUser, signInWithGoogle }}>
+		<AuthContext.Provider value={{ user, setUser, signInWithGoogle, signOut }}>
 			{children}
 		</AuthContext.Provider>
 	);

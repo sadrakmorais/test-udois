@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from './styled';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
@@ -9,6 +9,13 @@ import ilustration2 from '../../assets/SignIN-SignUP/ilustr2.svg';
 const SignUp = () => {
 	const { user, signInWithGoogle } = useAuth();
 	const history = useNavigate();
+
+	useEffect(() => {
+		if (user) {
+			history('/');
+		}
+	}, [user]);
+
 	const handleSignIN = () => {
 		history('/login');
 	};

@@ -91,17 +91,30 @@ const CardList = () => {
 		},
 	];
 	const history = useNavigate();
-	const handleDetails = () => {
-		history('/');
-	};
 
 	return (
 		<S.Wrapper>
-			{arr.map((post) => (
-				<Link to={`/infopost/${post.idPost}`}>
-					<Card post={post} key={arr.idPost} onClick={handleDetails} />
-				</Link>
-			))}
+			<div className='layout'>
+				{arr.map((post) => (
+					<Link to={`/infopost/${post.idPost}`}>
+						<Card post={post} key={arr.idPost} />
+					</Link>
+				))}
+			</div>
+			<div className='reverse'>
+				{arr.map((post) => (
+					<Link to={`/infopost/${post.idPost}`}>
+						<Card post={post} key={arr.idPost} />
+					</Link>
+				))}
+			</div>
+			<div className='layout'>
+				{arr.map((post) => (
+					<Link to={`/infopost/${post.idPost}`}>
+						<Card post={post} key={arr.idPost} />
+					</Link>
+				))}
+			</div>
 		</S.Wrapper>
 	);
 };

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-	height: 700px;
 	width: 100%;
 	box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px;
 
