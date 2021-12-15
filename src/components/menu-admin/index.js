@@ -6,16 +6,14 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
 import StoreIcon from '@mui/icons-material/Store';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import SettingsIcon from '@mui/icons-material/Settings';
 import QuizIcon from '@mui/icons-material/Quiz';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import Avatar from '@mui/material/Avatar';
 import { useAuth } from '../../hooks/useAuth';
-import { Link } from 'react-router-dom';
 
-function MenuAdmin() {
+function Menu() {
 	const { user, signOut } = useAuth();
 	const history = useNavigate();
 
@@ -38,33 +36,6 @@ function MenuAdmin() {
 
 	const list = () => (
 		<S.WrapperList>
-			<li>
-				<ShoppingCartIcon />
-				Compras
-			</li>
-
-			<li>
-				<StoreIcon />
-				Vendas
-			</li>
-
-			<Link to={`/author/${user?.id}/myposts`}>
-				<li>
-					<PhotoLibraryIcon />
-					Minhas Artes
-				</li>
-			</Link>
-
-			<li>
-				<SettingsIcon />
-				Configurações
-			</li>
-
-			<li>
-				<QuizIcon />
-				Ajuda
-			</li>
-
 			<li onClick={handleTest}>
 				<LogoutIcon />
 				Sair
@@ -102,4 +73,4 @@ function MenuAdmin() {
 	);
 }
 
-export default MenuAdmin;
+export default Menu;

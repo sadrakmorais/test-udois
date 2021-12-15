@@ -6,11 +6,11 @@ import logoGoogle from '../../assets/SignIN-SignUP/google.svg';
 import logoFace from '../../assets/SignIN-SignUP/face.svg';
 import ilustration1 from '../../assets/SignIN-SignUP/ilustr1.svg';
 import { useAuth } from '../../hooks/useAuth';
-
+import FacebookLogin from 'react-facebook-login';
 const SignIn = () => {
 	const history = useNavigate();
 
-	const { user, signInWithGoogle } = useAuth();
+	const { user, signInWithGoogle, signInWithFacebook } = useAuth();
 
 	useEffect(() => {
 		if (user) {
@@ -28,8 +28,11 @@ const SignIn = () => {
 		}
 		history('/home');
 	};
-	const handleFaceAuthentication = () => {
-		alert('Authentication Face');
+	const handleFaceAuthentication = async () => {
+		if (!user) {
+			await signInWithFacebook();
+		}
+		history('/home');
 	};
 
 	return (
@@ -49,7 +52,6 @@ const SignIn = () => {
 						<img src={logoFace} onClick={handleFaceAuthentication} alt='Logo Google' />
 					</div>
 				</S.Authentication>
-
 				<S.Form>
 					<input type='text' placeholder='E-mail' />
 					<input type='password' placeholder='Senha' />

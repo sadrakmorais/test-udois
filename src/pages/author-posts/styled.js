@@ -31,5 +31,22 @@ export const Setting = styled.div`
 `;
 
 export const CardsContainer = styled.div`
-	padding: 0 1%;
+	padding: 40px 1%;
+	display: flex;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px 10px;
+	align-items: flex-start;
+	justify-content: flex-start;
+
+	@media (max-width: 450px) {
+		padding: 40px 3%;
+	}
+	@media (min-width: 1500px) {
+		justify-content: center;
+	}
+	@media (max-width: 958px) {
+		justify-content: center;
+	}
 `;

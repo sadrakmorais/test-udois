@@ -5,7 +5,9 @@ import UnpublishedOutlinedIcon from '@mui/icons-material/UnpublishedOutlined';
 import TimelapseIcon from '@mui/icons-material/Timelapse';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import CardList from '../../components/cardList';
+import MyCards from '../../components/mycard';
+
+import myposts from './authorposts';
 
 const AuthorPosts = () => {
 	return (
@@ -25,7 +27,9 @@ const AuthorPosts = () => {
 			</S.Setting>
 
 			<S.CardsContainer>
-				<CardList />
+				{myposts.map((e) => {
+					return <MyCards post={e} key={e.id} />;
+				})}
 			</S.CardsContainer>
 		</S.Wrapper>
 	);

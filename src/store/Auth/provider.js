@@ -19,6 +19,7 @@ const AuthProvider = ({ children }) => {
 					avatar: photoURL,
 					name: displayName,
 					email: email,
+					accessLevel: 11,
 				});
 			}
 		});
@@ -43,6 +44,31 @@ const AuthProvider = ({ children }) => {
 				avatar: photoURL,
 				name: displayName,
 				email: email,
+				accessLevel: 20,
+			});
+		}
+	};
+
+	const signInWithFacebook = async () => {
+		const provider = new firebase.auth.FacebookAuthProvider();
+		provider.setCustomParameters({
+			display: 'popup',
+		});
+
+		const result = await auth.signInWithPopup(provider);
+
+		if (result.user) {
+			const { displayName, photoURL, uid, email } = result.user;
+			if (!displayName || !photoURL) {
+				throw new Error('Missing Informations');
+			}
+
+			setUser({
+				id: uid,
+				avatar: photoURL,
+				name: displayName,
+				email: email,
+				accessLevel: 20,
 			});
 		}
 	};
@@ -52,7 +78,8 @@ const AuthProvider = ({ children }) => {
 	};
 
 	return (
-		<AuthContext.Provider value={{ user, setUser, signInWithGoogle, signOut }}>
+		<AuthContext.Provider
+			value={{ user, setUser, signInWithGoogle, signOut, signInWithFacebook }}>
 			{children}
 		</AuthContext.Provider>
 	);

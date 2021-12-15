@@ -5,8 +5,6 @@ import SignUp from '../pages/signup';
 import { useAuth } from '../hooks/useAuth';
 
 const ApplicationRoutes = () => {
-	const { user } = useAuth();
-
 	return (
 		<BrowserRouter>
 			<Routes>
