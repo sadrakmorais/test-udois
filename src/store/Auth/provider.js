@@ -56,15 +56,15 @@ const AuthProvider = ({ children }) => {
 		const result = await auth.signInWithPopup(provider);
 		console.log(result);
 		if (result.user) {
-			const { name, photoURL, id, email } = result.user;
-			if (!name || !photoURL) {
+			const { displayName, photoURL, uid, email } = result.user;
+			if (!displayName || !photoURL) {
 				throw new Error('Missing Informations');
 			}
 
 			setUser({
-				id: id,
+				id: uid,
 				avatar: photoURL,
-				name: name,
+				name: displayName,
 				email: email,
 				accessLevel: 20,
 			});
