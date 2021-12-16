@@ -51,11 +51,6 @@ const AuthProvider = ({ children }) => {
 
 	const signInWithFacebook = async () => {
 		const provider = new firebase.auth.FacebookAuthProvider();
-		provider.setCustomParameters({
-			display: 'popup',
-		});
-		provider.addScope('user_birthday');
-		provider.addScope('user_gender');
 		provider.addScope('email');
 
 		const result = await auth.signInWithPopup(provider);
