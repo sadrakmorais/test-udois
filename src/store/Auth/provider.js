@@ -54,19 +54,22 @@ const AuthProvider = ({ children }) => {
 		provider.setCustomParameters({
 			display: 'popup',
 		});
+		provider.addScope('user_birthday');
+		provider.addScope('user_gender');
+		provider.addScope('email');
 
 		const result = await auth.signInWithPopup(provider);
-
+		console.log(result);
 		if (result.user) {
-			const { displayName, photoURL, uid, email } = result.user;
-			if (!displayName || !photoURL) {
+			const { name, photoURL, id, email } = result.user;
+			if (!name || !photoURL) {
 				throw new Error('Missing Informations');
 			}
 
 			setUser({
-				id: uid,
+				id: id,
 				avatar: photoURL,
-				name: displayName,
+				name: name,
 				email: email,
 				accessLevel: 20,
 			});
