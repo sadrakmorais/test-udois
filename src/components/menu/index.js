@@ -15,7 +15,7 @@ import Avatar from '@mui/material/Avatar';
 import { useAuth } from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
 
-function MenuAdmin() {
+const Menu = () => {
 	const { user, signOut } = useAuth();
 	const history = useNavigate();
 
@@ -100,6 +100,6 @@ function MenuAdmin() {
 			}
 		</div>
 	);
-}
+};
 
-export default MenuAdmin;
+export default Menu;

@@ -1,21 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as S from './styled';
-import { useNavigate } from 'react-router-dom';
-
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import { useNavigate, Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import StoreIcon from '@mui/icons-material/Store';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import SettingsIcon from '@mui/icons-material/Settings';
-import QuizIcon from '@mui/icons-material/Quiz';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import Avatar from '@mui/material/Avatar';
 import { useAuth } from '../../hooks/useAuth';
+import { grey } from '@mui/material/colors';
 
-function Menu() {
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
+import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
+import NoteAltOutlinedIcon from '@mui/icons-material/NoteAltOutlined';
+import TagIcon from '@mui/icons-material/Tag';
+import VideoLibraryOutlinedIcon from '@mui/icons-material/VideoLibraryOutlined';
+import InterestsOutlinedIcon from '@mui/icons-material/InterestsOutlined';
+import TranslateIcon from '@mui/icons-material/Translate';
+import ContentPasteSearchOutlinedIcon from '@mui/icons-material/ContentPasteSearchOutlined';
+import PhotoLibraryOutlinedIcon from '@mui/icons-material/PhotoLibraryOutlined';
+import FontDownloadOutlinedIcon from '@mui/icons-material/FontDownloadOutlined';
+import FindInPageIcon from '@mui/icons-material/FindInPage';
+
+const MenuAdmin = () => {
 	const { user, signOut } = useAuth();
-	const history = useNavigate();
+	//const history = useNavigate();
 
 	const [state, setState] = useState({
 		left: false,
@@ -29,15 +43,134 @@ function Menu() {
 		setState({ ...state, [anchor]: open });
 	};
 
-	const handleTest = async () => {
+	const handleLogout = async () => {
 		await signOut();
 		document.location.reload(true);
 	};
 
 	const list = () => (
 		<S.WrapperList>
-			<li onClick={handleTest}>
-				<LogoutIcon />
+			<Link to={'#'}>
+				<li>
+					<HomeOutlinedIcon sx={{ color: grey[500] }} />
+					Home
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<AssessmentOutlinedIcon sx={{ color: grey[500] }} />
+					Relatório
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<ManageAccountsOutlinedIcon sx={{ color: grey[500] }} />
+					Usuários
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<ManageSearchIcon sx={{ color: grey[500] }} />
+					Pesquisas
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<SettingsOutlinedIcon sx={{ color: grey[500] }} />
+					Configurações
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<CategoryOutlinedIcon sx={{ color: grey[500] }} />
+					Categorias
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<AccountBalanceIcon sx={{ color: grey[500] }} />
+					Faturas
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<PaidOutlinedIcon sx={{ color: grey[500] }} />
+					Moedas
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<NoteAltOutlinedIcon sx={{ color: grey[500] }} />
+					Páginas de template
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<TagIcon sx={{ color: grey[500] }} />
+					Tags
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<VideoLibraryOutlinedIcon sx={{ color: grey[500] }} />
+					Tutorial
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<InterestsOutlinedIcon sx={{ color: grey[500] }} />
+					Ícones
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<TranslateIcon sx={{ color: grey[500] }} />
+					Idiomas
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<ContentPasteSearchOutlinedIcon sx={{ color: grey[500] }} />
+					Termos de Busca
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<PhotoLibraryOutlinedIcon sx={{ color: grey[500] }} />
+					Templates
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<FontDownloadOutlinedIcon sx={{ color: grey[500] }} />
+					Fontes
+				</li>
+			</Link>
+
+			<Link to={'#'}>
+				<li>
+					<FindInPageIcon sx={{ color: grey[500] }} />
+					Oportunidades
+				</li>
+			</Link>
+
+			<li onClick={handleLogout}>
+				<LogoutIcon sx={{ color: grey[500] }} />
 				Sair
 			</li>
 		</S.WrapperList>
@@ -71,6 +204,6 @@ function Menu() {
 			}
 		</div>
 	);
-}
+};
 
-export default Menu;
+export default MenuAdmin;

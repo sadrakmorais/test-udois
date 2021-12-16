@@ -16,7 +16,7 @@ const NavBarHeader = ({ scroll }) => {
 	return (
 		<S.Container className={scroll ? ' scroll' : ''}>
 			<S.WrapperMenu>
-				{user?.accessLevel === 10 ? <MenuAdmin /> : <Menu />}
+				{user?.accessLevel === 20 ? <MenuAdmin /> : <Menu />}
 				<Link to={`/home`}>
 					<img className={scroll ? 'logoOFF' : 'logoScroll'} src={logoIMG} alt='logo' />
 				</Link>

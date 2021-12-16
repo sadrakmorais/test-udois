@@ -12,7 +12,11 @@ const Routes = () => {
 		return <AuthStack />;
 	}
 
-	return user?.accessLevel === 10 ? <AdminStack /> : <UserStack />;
+	if (user?.accessLevel === undefined) {
+		return <h1>Carregando</h1>;
+	}
+
+	return user?.accessLevel === 20 ? <AdminStack /> : <UserStack />;
 };
 
 export default Routes;

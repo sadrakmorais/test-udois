@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from '../pages/admin-pages/home';
+import Users from '../pages/admin-pages/users';
 import Layout from '../components/Layout';
 const ApplicationRoutes = () => {
 	return (
@@ -16,6 +17,16 @@ const ApplicationRoutes = () => {
 					element={
 						<Layout>
 							<Home />
+						</Layout>
+					}
+				/>
+
+				<Route
+					exact
+					path='/users'
+					element={
+						<Layout>
+							<Users />
 						</Layout>
 					}
 				/>

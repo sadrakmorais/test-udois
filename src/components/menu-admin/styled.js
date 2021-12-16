@@ -23,12 +23,12 @@ export const WrapperList = styled.ul`
 	li {
 		display: flex;
 		align-items: center;
-		font-size: 1.2em;
+		font-size: 0.875em;
 		gap: 5px;
 		padding: 15px;
 
 		&:hover {
-			background: #cbb;
+			background: #e0e0e0;
 			transition: 0.3s all ease;
 		}
 	}
