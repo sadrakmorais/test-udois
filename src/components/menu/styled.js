@@ -26,6 +26,7 @@ export const WrapperList = styled.ul`
 		font-size: 1.2em;
 		gap: 5px;
 		padding: 15px;
+		cursor: pointer;
 
 		&:hover {
 			background: #cbb;

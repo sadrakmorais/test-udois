@@ -50,7 +50,7 @@ const MenuAdmin = () => {
 
 	const list = () => (
 		<S.WrapperList>
-			<Link to={'#'}>
+			<Link to={'/'}>
 				<li>
 					<HomeOutlinedIcon sx={{ color: grey[500] }} />
 					Home
@@ -64,7 +64,7 @@ const MenuAdmin = () => {
 				</li>
 			</Link>
 
-			<Link to={'#'}>
+			<Link to={'/users'}>
 				<li>
 					<ManageAccountsOutlinedIcon sx={{ color: grey[500] }} />
 					Usuários
@@ -85,7 +85,7 @@ const MenuAdmin = () => {
 				</li>
 			</Link>
 
-			<Link to={'#'}>
+			<Link to={'/category'}>
 				<li>
 					<CategoryOutlinedIcon sx={{ color: grey[500] }} />
 					Categorias

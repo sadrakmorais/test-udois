@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
 	width: 100%;
-	padding: 10px 16%;
+	padding: 10px 13%;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Grid = styled.div`
-	width: 1000px;
+	width: 100%;
 	height: 700px;
 	align-self: center;
 `;

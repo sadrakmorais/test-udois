@@ -4,13 +4,7 @@ import AuthContext from './context';
 import { auth, firebase } from '../../service/firebase';
 
 const AuthProvider = ({ children }) => {
-	const [user, setUser] = useState({
-		id: undefined,
-		avatar: undefined,
-		name: undefined,
-		email: undefined,
-		accessLevel: undefined,
-	});
+	const [user, setUser] = useState();
 
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -26,6 +20,7 @@ const AuthProvider = ({ children }) => {
 					name: displayName,
 					email: email,
 					accessLevel: 20,
+					logged: true,
 				});
 			}
 		});
@@ -51,6 +46,7 @@ const AuthProvider = ({ children }) => {
 				name: displayName,
 				email: email,
 				accessLevel: 20,
+				logged: true,
 			});
 		}
 	};
@@ -72,7 +68,7 @@ const AuthProvider = ({ children }) => {
 				avatar: photoURL,
 				name: displayName,
 				email: email,
-				accessLevel: 20,
+				accessLevel: 30,
 			});
 		}
 	};

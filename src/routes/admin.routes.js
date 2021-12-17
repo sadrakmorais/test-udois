@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from '../pages/admin-pages/home';
 import Users from '../pages/admin-pages/users';
+import Category from '../pages/admin-pages/category';
 import Layout from '../components/Layout';
 const ApplicationRoutes = () => {
 	return (
@@ -27,6 +28,15 @@ const ApplicationRoutes = () => {
 					element={
 						<Layout>
 							<Users />
+						</Layout>
+					}
+				/>
+				<Route
+					exact
+					path='/category'
+					element={
+						<Layout>
+							<Category />
 						</Layout>
 					}
 				/>
