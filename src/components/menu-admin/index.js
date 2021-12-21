@@ -64,7 +64,7 @@ const MenuAdmin = () => {
 				</li>
 			</Link>
 
-			<Link to={'/users'}>
+			<Link to={'/usuarios'}>
 				<li>
 					<ManageAccountsOutlinedIcon sx={{ color: grey[500] }} />
 					Usuários
@@ -85,28 +85,28 @@ const MenuAdmin = () => {
 				</li>
 			</Link>
 
-			<Link to={'/category'}>
+			<Link to={'/categorias'}>
 				<li>
 					<CategoryOutlinedIcon sx={{ color: grey[500] }} />
 					Categorias
 				</li>
 			</Link>
 
-			<Link to={'#'}>
+			<Link to={'/faturas'}>
 				<li>
 					<AccountBalanceIcon sx={{ color: grey[500] }} />
 					Faturas
 				</li>
 			</Link>
 
-			<Link to={'#'}>
+			<Link to={'moedas'}>
 				<li>
 					<PaidOutlinedIcon sx={{ color: grey[500] }} />
 					Moedas
 				</li>
 			</Link>
 
-			<Link to={'#'}>
+			<Link to={'/paginas_templates'}>
 				<li>
 					<NoteAltOutlinedIcon sx={{ color: grey[500] }} />
 					Páginas de template

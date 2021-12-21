@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import * as S from './styled';
 import { useNavigate } from 'react-router-dom';
-
 import logoGoogle from '../../assets/SignIN-SignUP/google.svg';
 import logoFace from '../../assets/SignIN-SignUP/face.svg';
 import ilustration1 from '../../assets/SignIN-SignUP/ilustr1.svg';
 import { useAuth } from '../../hooks/useAuth';
-import FacebookLogin from 'react-facebook-login';
+
 const SignIn = () => {
 	const history = useNavigate();
 

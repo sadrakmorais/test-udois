@@ -1,24 +1,32 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-	width: 100%;
-	height: 100%;
 	display: flex;
-	padding: 50px;
+	height: 100%;
 	align-items: center;
+	padding: 50px;
 
-	@media (max-width: 770px) {
+	.ilustration {
+		max-width: 650px;
+	}
+
+	.signin {
+		span {
+			margin-top: 50px;
+			cursor: pointer;
+		}
+	}
+
+	@media (max-width: 1025px) {
 		flex-direction: column;
-		padding: 25px;
-		gap: 40px;
+		padding: 10px;
 
 		.ilustration {
-			max-width: 300px;
+			max-width: 80%;
 		}
 	}
 
 	.ilustration {
-		flex: 2;
 		img {
 			max-width: 100%;
 		}
@@ -30,22 +38,29 @@ export const Wrapper = styled.div`
 		align-items: center;
 		justify-content: center;
 
-		span {
-			margin-top: 100px;
-			padding: 0 20%;
-
-			font-size: 1.5em;
-			cursor: pointer;
+		@media (max-width: 1025px) {
+			flex: 0;
+			width: 100%;
+			padding: 0 10%;
+			margin-top: 50px;
+			gap: 20px;
 		}
 
 		@media (max-width: 450px) {
-			gap: 20px;
+			flex: 0;
+			width: 100%;
+			margin-top: 20px;
+			gap: 10px;
 
 			span {
-				margin-top: 20px;
-				padding: 0 5%;
+				margin-top: 10px;
+				padding: 0;
 				font-size: 1em;
 				cursor: pointer;
+			}
+
+			.ilustration {
+				max-width: 300px;
 			}
 		}
 	}
@@ -57,11 +72,19 @@ export const Authentication = styled.div`
 	align-items: center;
 	padding: 30px;
 	gap: 10px;
+
+	@media (max-width: 1025px) {
+		padding: 10px;
+	}
+
+	@media (max-width: 450px) {
+		padding: 20px;
+	}
 	h1 {
 		font-weight: 400;
 		font-size: 3em;
 		@media (max-width: 450px) {
-			font-size: 2.3em;
+			font-size: 1.7em;
 		}
 	}
 	div {
@@ -72,8 +95,8 @@ export const Authentication = styled.div`
 			height: 60px;
 			cursor: pointer;
 			@media (max-width: 450px) {
-				width: 40px;
-				height: 40px;
+				width: 35px;
+				height: 35px;
 			}
 		}
 	}
@@ -87,9 +110,14 @@ export const Form = styled.form`
 	padding: 0 20%;
 	gap: 30px;
 
+	@media (max-width: 1025px) {
+		padding: 0;
+		gap: 30px;
+	}
+
 	@media (max-width: 450px) {
-		padding: 0 5%;
-		gap: 20px;
+		padding: 0;
+		gap: 15px;
 	}
 
 	p {

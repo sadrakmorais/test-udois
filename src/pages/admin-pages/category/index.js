@@ -1,27 +1,17 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './styled';
 import category from './category';
-import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import TextField from '@mui/material/TextField';
-import { DataGrid, GridToolbarFilterButton, GridActionsCellItem } from '@mui/x-data-grid';
-import ClearIcon from '@mui/icons-material/Clear';
-import SearchIcon from '@mui/icons-material/Search';
+import { DataGrid } from '@mui/x-data-grid';
 import Button from '../../../components/button';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import { green, red } from '@mui/material/colors';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import KeyIcon from '@mui/icons-material/Key';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
+import QuickSearchToolbar from '../../../components/search-toolbar';
 
 const Category = () => {
 	const [rows, setRows] = useState(category);
 	const [searchText, setSearchText] = useState('');
 
-	const columns = useMemo(() => [
+	const columns = [
 		{ field: 'name', headerName: 'Nome', type: 'string', minWidth: 200 },
 		{ field: 'language', headerName: 'Idioma', type: 'string', width: 300 },
 		{
@@ -42,72 +32,16 @@ const Category = () => {
 				</strong>
 			),
 		},
-	]);
+	];
+
 	const escapeRegExp = (value) => {
 		return value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
-	};
-
-	const QuickSearchToolbar = (props) => {
-		return (
-			<Box
-				sx={{
-					p: 0.5,
-					pb: 0,
-					justifyContent: 'space-between',
-					display: 'flex',
-					alignItems: 'flex-start',
-					flexWrap: 'wrap',
-				}}>
-				<div>
-					<GridToolbarFilterButton />
-				</div>
-				<TextField
-					variant='standard'
-					value={props.value}
-					onChange={props.onChange}
-					placeholder='Buscar…'
-					InputProps={{
-						startAdornment: <SearchIcon fontSize='small' />,
-						endAdornment: (
-							<IconButton
-								title='Clear'
-								aria-label='Clear'
-								size='small'
-								style={{ visibility: props.value ? 'visible' : 'hidden' }}
-								onClick={props.clearSearch}>
-								<ClearIcon fontSize='small' />
-							</IconButton>
-						),
-					}}
-					sx={{
-						width: {
-							xs: 1,
-							sm: 'auto',
-						},
-						m: (theme) => theme.spacing(1, 0.5, 1.5),
-						'& .MuiSvgIcon-root': {
-							mr: 0.5,
-						},
-						'& .MuiInput-underline:before': {
-							borderBottom: 1,
-							borderColor: 'divider',
-						},
-					}}
-				/>
-			</Box>
-		);
-	};
-
-	QuickSearchToolbar.propTypes = {
-		clearSearch: PropTypes.func.isRequired,
-		onChange: PropTypes.func.isRequired,
-		value: PropTypes.string.isRequired,
 	};
 
 	const requestSearch = (searchValue) => {
 		setSearchText(searchValue);
 		const searchRegex = new RegExp(escapeRegExp(searchValue), 'i');
-		const filteredRows = rows.filter((row) => {
+		const filteredRows = category.filter((row) => {
 			return Object.keys(row).some((field) => {
 				return searchRegex.test(row[field].toString());
 			});
@@ -116,8 +50,8 @@ const Category = () => {
 	};
 
 	useEffect(() => {
-		setRows(rows);
-	}, [rows]);
+		setRows(category);
+	}, [category]);
 
 	return (
 		<S.Wrapper>

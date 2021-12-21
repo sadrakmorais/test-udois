@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from '../pages/admin-pages/home';
 import Users from '../pages/admin-pages/users';
 import Category from '../pages/admin-pages/category';
+import Currency from '../pages/admin-pages/currency';
+import Invoices from '../pages/admin-pages/invoice';
+import PagesTemplates from '../pages/admin-pages/pages-templates';
 import Layout from '../components/Layout';
 const ApplicationRoutes = () => {
 	return (
@@ -24,7 +27,7 @@ const ApplicationRoutes = () => {
 
 				<Route
 					exact
-					path='/users'
+					path='/usuarios'
 					element={
 						<Layout>
 							<Users />
@@ -33,10 +36,38 @@ const ApplicationRoutes = () => {
 				/>
 				<Route
 					exact
-					path='/category'
+					path='/categorias'
 					element={
 						<Layout>
 							<Category />
+						</Layout>
+					}
+				/>
+				<Route
+					exact
+					path='/moedas'
+					element={
+						<Layout>
+							<Currency />
+						</Layout>
+					}
+				/>
+
+				<Route
+					exact
+					path='/faturas'
+					element={
+						<Layout>
+							<Invoices />
+						</Layout>
+					}
+				/>
+				<Route
+					exact
+					path='/paginas_templates'
+					element={
+						<Layout>
+							<PagesTemplates />
 						</Layout>
 					}
 				/>
