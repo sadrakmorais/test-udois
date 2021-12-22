@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
 	height: 100%;
 	align-items: center;
 	padding: 50px;
+	overflow-y: auto;
 
 	.ilustration {
 		max-width: 650px;
@@ -12,8 +13,10 @@ export const Wrapper = styled.div`
 
 	.signin {
 		span {
-			margin-top: 50px;
-			cursor: pointer;
+			padding: 0 20%;
+			margin-top: 30px;
+			font-weight: 400;
+			font-size: 1.5em;
 		}
 	}
 
@@ -22,7 +25,7 @@ export const Wrapper = styled.div`
 		padding: 10px;
 
 		.ilustration {
-			max-width: 80%;
+			max-width: 50%;
 		}
 	}
 

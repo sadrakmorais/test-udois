@@ -12,7 +12,7 @@ const Routes = () => {
 		return <AuthStack />;
 	}
 
-	return user?.accessLevel === 20 ? <AdminStack /> : <UserStack />;
+	return user?.accessLevel === 220 ? <AdminStack /> : <UserStack />;
 };
 
 export default Routes;

@@ -26,6 +26,10 @@ export const Container = styled.header`
 	&.logoScroll {
 		display: flex;
 	}
+
+	.searchOFF {
+		visibility: hidden;
+	}
 `;
 
 export const WrapperMenu = styled.section`

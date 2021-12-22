@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 		padding: 10px;
 
 		.ilustration {
-			max-width: 80%;
+			max-width: 60%;
 		}
 	}
 
@@ -37,7 +37,7 @@ export const Wrapper = styled.div`
 			text-align: center;
 			font-size: 1.123em;
 			color: #b8b5b5;
-			margin-top: 80px;
+			margin-top: 50px;
 			line-height: 30px;
 			strong {
 				color: #000;
@@ -49,6 +49,12 @@ export const Wrapper = styled.div`
 				margin-top: 50px;
 				line-height: 20px;
 			}
+		}
+
+		span {
+			margin-top: 30px;
+			font-weight: 400;
+			font-size: 1.5em;
 		}
 
 		@media (max-width: 1025px) {

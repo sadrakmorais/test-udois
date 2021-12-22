@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Menu from '../menu';
 import MenuAdmin from '../menu-admin';
 import * as S from './styled';
@@ -12,21 +12,30 @@ import { Link } from 'react-router-dom';
 
 const NavBarHeader = ({ scroll }) => {
 	const { user } = useAuth();
+	const [searchBar, setSearchBar] = useState(false);
+
+	const handleBar = () => {
+		setSearchBar(!searchBar);
+		console.log('cliquei');
+	};
 
 	return (
 		<S.Container className={scroll ? ' scroll' : ''}>
-			<S.WrapperMenu>
+			<S.WrapperMenu className={searchBar ? 'searchON' : 'searchOFF'}>
 				{user?.accessLevel === 20 ? <MenuAdmin /> : <Menu />}
+			</S.WrapperMenu>
+
+			<section className={searchBar ? 'searchON' : 'searchOFF'}>
 				<Link to={`/home`}>
 					<img className={scroll ? 'logoOFF' : 'logoScroll'} src={logoIMG} alt='logo' />
 				</Link>
 				<Link to={`/home`}>
 					<img className={scroll ? 'logoScroll' : 'logoOFF'} src={logo2IMG} alt='logo' />
 				</Link>
-			</S.WrapperMenu>
+			</section>
 			<div>
-				<SearchIcon />
-				<ShoppingBagIcon />
+				<SearchIcon onClick={handleBar} />
+				<ShoppingBagIcon className={searchBar ? 'searchON' : 'searchOFF'} />
 			</div>
 		</S.Container>
 	);

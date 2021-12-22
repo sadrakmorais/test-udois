@@ -1,14 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './styled';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import logoGoogle from '../../assets/SignIN-SignUP/google.svg';
 import logoFace from '../../assets/SignIN-SignUP/face.svg';
 import ilustration2 from '../../assets/SignIN-SignUP/ilustr2.svg';
+import TextField from '@mui/material/TextField';
 
 const SignUp = () => {
 	const { user, signInWithGoogle } = useAuth();
 	const history = useNavigate();
+
+	const [errors, setErrors] = useState(true);
+	const [errorsPassword, setErrorsPassword] = useState(true);
+	const [errorsValidatePassword, setErrorsValidatePassword] = useState(true);
+	const [emailValue, setEmailValue] = useState('');
+	const [passwordValue, setPasswordValue] = useState('');
+	const [validatePasswordValue, setValidatePasswordValue] = useState('');
+
+	useEffect(() => {
+		emailValue ? setErrors(false) : setErrors(true);
+		emailValue.includes('@') ? setErrors(false) : setErrors(true);
+		passwordValue ? setErrorsPassword(false) : setErrorsPassword(true);
+		validatePasswordValue ? setErrorsValidatePassword(false) : setErrorsValidatePassword(true);
+	}, [emailValue, passwordValue, validatePasswordValue]);
 
 	useEffect(() => {
 		if (user) {
@@ -48,9 +63,44 @@ const SignUp = () => {
 				</S.Authentication>
 
 				<S.Form>
-					<input type='text' placeholder='E-mail' />
-					<input type='password' placeholder='Senha' />
-					<input type='password' placeholder='Repita Senha' />
+					<TextField
+						sx={{ width: '100%' }}
+						required
+						error={errors}
+						id='filled-email-input'
+						label='E-MAIL'
+						type='email'
+						autoComplete='current-email'
+						variant='standard'
+						value={emailValue}
+						onChange={(e) => setEmailValue(e.target.value)}
+					/>
+
+					<TextField
+						sx={{ width: '100%' }}
+						required
+						error={errorsPassword}
+						id='filled-password-input'
+						label='SENHA'
+						type='password'
+						autoComplete='current-password'
+						variant='standard'
+						value={passwordValue}
+						onChange={(e) => setPasswordValue(e.target.value)}
+					/>
+
+					<TextField
+						sx={{ width: '100%' }}
+						required
+						error={errorsValidatePassword}
+						id='filled-password-input'
+						label='REPITA A SENHA'
+						type='password'
+						autoComplete='current-password'
+						variant='standard'
+						value={validatePasswordValue}
+						onChange={(e) => setValidatePasswordValue(e.target.value)}
+					/>
 
 					<button>Cadastrar</button>
 				</S.Form>
