@@ -9,11 +9,10 @@ export const Wrapper = styled.div`
 export const PostDetails = styled.div`
 	display: flex;
 	width: 100%;
-	margin-top: 266px;
+	margin-top: 120px;
 	justify-content: space-between;
-	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px,
-		rgba(17, 17, 26, 0.1) 0px 16px 56px;
 	padding: 44px 65px;
+	overflow-y: auto;
 	@media (max-width: 1200px) {
 		flex-direction: column;
 	}
@@ -28,12 +27,10 @@ export const PostDetails = styled.div`
 `;
 
 export const PostPhoto = styled.div`
-	width: 336px;
-	position: relative;
-	bottom: 200px;
+	width: 424px;
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+
 	@media (max-width: 1200px) {
 		bottom: 180px;
 	}
@@ -42,7 +39,7 @@ export const PostPhoto = styled.div`
 		width: 100%;
 	}
 	img {
-		max-height: 554px;
+		max-height: 643px;
 		box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 	}
 	button {
@@ -89,8 +86,6 @@ export const PostInfos = styled.div`
 		justify-content: center;
 		border-radius: 50%;
 		margin-left: 90%;
-		position: relative;
-		bottom: 15px;
 		@media (max-width: 1200px) {
 			margin-left: 0;
 		}

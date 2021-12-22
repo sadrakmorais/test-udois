@@ -176,12 +176,13 @@ const InfoPost = () => {
 				</S.PostPhoto>
 				<div>
 					<S.PostInfos>
-						<aside>
-							<ShareIcon sx={{ fontSize: 40 }} />
-						</aside>
 						<h1>{post.description}</h1>
 						<p>{post.howMake}</p>
 					</S.PostInfos>
+
+					<aside>
+						<ShareIcon sx={{ fontSize: 40 }} />
+					</aside>
 
 					<S.AuthorInfos>
 						<div>

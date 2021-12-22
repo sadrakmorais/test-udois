@@ -65,7 +65,7 @@ const SignUp = () => {
 				<S.Form>
 					<TextField
 						sx={{ width: '100%' }}
-						required
+						required=''
 						error={errors}
 						id='filled-email-input'
 						label='E-MAIL'
@@ -78,7 +78,7 @@ const SignUp = () => {
 
 					<TextField
 						sx={{ width: '100%' }}
-						required
+						required=''
 						error={errorsPassword}
 						id='filled-password-input'
 						label='SENHA'
@@ -91,7 +91,7 @@ const SignUp = () => {
 
 					<TextField
 						sx={{ width: '100%' }}
-						required
+						required=''
 						error={errorsValidatePassword}
 						id='filled-password-input'
 						label='REPITA A SENHA'

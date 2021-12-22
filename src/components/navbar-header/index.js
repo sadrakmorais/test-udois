@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 const NavBarHeader = ({ scroll }) => {
 	const { user } = useAuth();
-	const [searchBar, setSearchBar] = useState(false);
+	const [searchBar, setSearchBar] = useState(true);
 
 	const handleBar = () => {
 		setSearchBar(!searchBar);
