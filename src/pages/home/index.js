@@ -3,6 +3,7 @@ import * as S from './styled';
 import ilustracaoIMG from '../../assets/home/ilust1.svg';
 import Chips from '../../components/chips';
 import CardList from '../../components/cardList';
+import SwiperIllustration from '../../components/swiper-ilustrations';
 
 const Home = () => {
 	return (
@@ -12,9 +13,7 @@ const Home = () => {
 					<h1>Edite.|</h1>
 					<h2>Milhares de artes prontas e um incrível editor online!</h2>
 				</S.WrapperInfos>
-				<S.WrapperIMG>
-					<img src={ilustracaoIMG} alt='logo' />
-				</S.WrapperIMG>
+				<S.WrapperIMG></S.WrapperIMG>
 			</S.WrapperIntro>
 			<Chips />
 			<CardList />

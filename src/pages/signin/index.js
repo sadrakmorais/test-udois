@@ -11,17 +11,16 @@ const SignIn = () => {
 	const history = useNavigate();
 
 	const { user, signInWithGoogle, signInWithFacebook } = useAuth();
-	const [errors, setErrors] = useState(true);
-	const [errorsPassword, setErrorsPassword] = useState(true);
+	const [errors, setErrors] = useState(false);
+	const [errorsPassword, setErrorsPassword] = useState(false);
 	const [emailValue, setEmailValue] = useState('');
 	const [passwordValue, setPasswordValue] = useState('');
 
-	useEffect(() => {
+	const handleErros = () => {
 		emailValue ? setErrors(false) : setErrors(true);
 		emailValue.includes('@') ? setErrors(false) : setErrors(true);
 		passwordValue ? setErrorsPassword(false) : setErrorsPassword(true);
-	}, [emailValue, passwordValue]);
-
+	};
 	useEffect(() => {
 		if (user) {
 			history('/');
@@ -91,7 +90,7 @@ const SignIn = () => {
 
 					<p>Esqueceu sua senha?</p>
 
-					<button>Acessar</button>
+					<button onClick={handleErros}>Acessar</button>
 				</S.Form>
 				<span onClick={handleRegister}>Precisa de uma conta? Crie uma conta agora</span>
 			</div>

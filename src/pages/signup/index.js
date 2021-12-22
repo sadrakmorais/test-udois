@@ -11,19 +11,19 @@ const SignUp = () => {
 	const { user, signInWithGoogle } = useAuth();
 	const history = useNavigate();
 
-	const [errors, setErrors] = useState(true);
-	const [errorsPassword, setErrorsPassword] = useState(true);
-	const [errorsValidatePassword, setErrorsValidatePassword] = useState(true);
+	const [errors, setErrors] = useState(false);
+	const [errorsPassword, setErrorsPassword] = useState(false);
+	const [errorsValidatePassword, setErrorsValidatePassword] = useState(false);
 	const [emailValue, setEmailValue] = useState('');
 	const [passwordValue, setPasswordValue] = useState('');
 	const [validatePasswordValue, setValidatePasswordValue] = useState('');
 
-	useEffect(() => {
+	const handleErros = () => {
 		emailValue ? setErrors(false) : setErrors(true);
 		emailValue.includes('@') ? setErrors(false) : setErrors(true);
 		passwordValue ? setErrorsPassword(false) : setErrorsPassword(true);
 		validatePasswordValue ? setErrorsValidatePassword(false) : setErrorsValidatePassword(true);
-	}, [emailValue, passwordValue, validatePasswordValue]);
+	};
 
 	useEffect(() => {
 		if (user) {
@@ -102,7 +102,7 @@ const SignUp = () => {
 						onChange={(e) => setValidatePasswordValue(e.target.value)}
 					/>
 
-					<button>Cadastrar</button>
+					<button onClick={handleErros}>Cadastrar</button>
 				</S.Form>
 				<p>
 					Ao continuar, você concorda com os <strong>Termos de Serviço</strong> da UDOIS e
