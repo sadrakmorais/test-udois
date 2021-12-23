@@ -170,33 +170,10 @@ const InfoPost = () => {
 	return (
 		<S.Wrapper>
 			<S.PostDetails>
+				<h1 className='mobileTittle'>{post.description}</h1>
 				<S.PostPhoto>
 					<img src={post.postImg} alt={post.description} />
-					<button>EDITAR</button>
-				</S.PostPhoto>
-				<div>
-					<S.PostInfos>
-						<h1>{post.description}</h1>
-						<p>{post.howMake}</p>
-					</S.PostInfos>
-
-					<aside>
-						<ShareIcon sx={{ fontSize: 40 }} />
-					</aside>
-
-					<S.AuthorInfos>
-						<div>
-							<Link to={`/author/${post.author.id}`}>
-								<img src={post.author.avatar} />{' '}
-							</Link>
-							<div className='author-infos'>
-								<Link to={`/author/${post.author.id}`}>
-									{' '}
-									<p>{post.author.name}</p>
-								</Link>
-								<h2>{post.author.criations} Criações</h2>
-							</div>
-						</div>
+					<S.Footer>
 						<div className='stats'>
 							<div>
 								<VisibilityOutlinedIcon />
@@ -211,8 +188,32 @@ const InfoPost = () => {
 								{post.likes}
 							</div>
 						</div>
-					</S.AuthorInfos>
+						<button>EDITAR</button>
+					</S.Footer>
 					<p>{post.sold} Pessoas compraram essa arte!</p>
+				</S.PostPhoto>
+				<div className='containerInfos'>
+					<S.PostInfos>
+						<h1>{post.description}</h1>
+						<aside>
+							<ShareIcon sx={{ fontSize: 40 }} />
+						</aside>
+					</S.PostInfos>
+
+					<S.AuthorInfos>
+						<Link to={`/author/${post.author.id}`}>
+							<img src={post.author.avatar} alt='AuthorPhoto' />{' '}
+						</Link>
+						<div className='author-infos'>
+							<Link to={`/author/${post.author.id}`}>
+								{' '}
+								<p>{post.author.name}</p>
+							</Link>
+							<h2>{post.author.criations} Criações</h2>
+						</div>
+					</S.AuthorInfos>
+
+					<p className='howMake'>{post.howMake}</p>
 				</div>
 			</S.PostDetails>
 			<Chips />

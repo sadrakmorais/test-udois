@@ -10,9 +10,37 @@ export const PostDetails = styled.div`
 	display: flex;
 	width: 100%;
 	margin-top: 120px;
-	justify-content: space-between;
+	justify-content: flex-start;
+	gap: 100px;
 	padding: 44px 65px;
 	overflow-y: auto;
+
+	.mobileTittle {
+		display: none;
+		@media (max-width: 450px) {
+			display: block;
+
+			font-size: 1.5em;
+			font-weight: 300;
+			text-align: center;
+		}
+	}
+
+	.containerInfos {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		.howMake {
+			height: 500px;
+			padding-right: 10%;
+			overflow-y: auto;
+
+			@media (max-width: 450px) {
+				height: 300px;
+			}
+		}
+	}
 	@media (max-width: 1200px) {
 		flex-direction: column;
 	}
@@ -42,74 +70,65 @@ export const PostPhoto = styled.div`
 		max-height: 643px;
 		box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 	}
+`;
+
+export const Footer = styled.div`
+	display: flex;
+	padding: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	justify-content: space-between;
+	.stats {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		div {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+	}
+
 	button {
-		width: 100%;
 		color: #fff;
 		background: #34a853;
 		padding: 22px 0;
-		border-radius: 5px;
+		width: 50%;
 	}
 `;
 
 export const PostInfos = styled.div`
-	height: 425px;
-	width: 735px;
 	display: flex;
-	flex-direction: column;
-	gap: 30px;
-	padding: 10px;
-	position: relative;
-	bottom: 70px;
+	justify-content: space-between;
+	align-items: center;
 
-	@media (max-width: 1200px) {
-		width: 100%;
-		gap: 0;
-		bottom: 100px;
-	}
-	@media (max-width: 450px) {
-		h1 {
-			font-size: 2em;
-		}
-		p {
-			font-size: 1em;
+	h1 {
+		width: 70%;
+		font-size: 2.5em;
+		font-weight: 300;
+
+		@media (max-width: 450px) {
+			display: none;
 		}
 	}
 
 	aside {
-		box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px,
-			rgba(17, 17, 26, 0.1) 0px 16px 56px;
-
-		width: 60px;
-		height: 68px;
+		background: #fff;
+		border-radius: 50%;
+		cursor: pointer;
+		width: 50px;
+		height: 50px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 50%;
-		margin-left: 90%;
-		@media (max-width: 1200px) {
-			margin-left: 0;
-		}
-	}
-
-	h1 {
-		font-size: 2.5em;
-		font-weight: 300;
-		font-family: 'Roboto', sans-serif;
-	}
-	p {
-		font-weight: 100;
-		font-size: 1.375em;
-		height: 300px;
-		overflow-y: auto;
 	}
 `;
 export const AuthorInfos = styled.div`
 	display: flex;
-	justify-content: space-between;
-	@media (max-width: 490px) {
-		flex-direction: column;
-	}
+
 	img {
+		width: 51px;
+		height: 51px;
 		border: 2px solid transparent;
 		transition: 0.2s ease all;
 
@@ -133,13 +152,5 @@ export const AuthorInfos = styled.div`
 	}
 	div {
 		display: flex;
-	}
-	.stats {
-		gap: 30px;
-		align-items: center;
-		div {
-			align-items: center;
-			gap: 5px;
-		}
 	}
 `;
