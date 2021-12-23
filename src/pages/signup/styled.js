@@ -55,6 +55,7 @@ export const Wrapper = styled.div`
 			margin-top: 30px;
 			font-weight: 400;
 			font-size: 1.5em;
+			cursor: pointer;
 		}
 
 		@media (max-width: 1025px) {
@@ -120,59 +121,22 @@ export const Authentication = styled.div`
 		}
 	}
 `;
-export const Form = styled.form`
-	width: 100%;
+export const Form = styled.div`
+	width: 85%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 0 20%;
 	gap: 30px;
+	form {
+		width: 100%;
+	}
 
 	@media (max-width: 1025px) {
-		padding: 0;
-		gap: 30px;
+		width: 90%;
 	}
 
 	@media (max-width: 450px) {
-		padding: 0;
-		gap: 15px;
-	}
-
-	p {
-		align-self: flex-start;
-		font-size: 1.5em;
-		cursor: pointer;
-
-		@media (max-width: 450px) {
-			font-size: 1em;
-		}
-	}
-
-	input {
-		width: 100%;
-		border: transparent;
-		border-bottom: 2px solid #595959;
-		padding: 10px 0;
-		font-size: 1.5em;
-		color: #a3a3a3;
-		@media (max-width: 450px) {
-			font-size: 1em;
-			padding: 8px 0;
-		}
-	}
-
-	button {
-		background: #34a853;
-		width: 100%;
-		padding: 16.5px;
-		font-size: 1.5em;
-		color: #fff;
-		border-radius: 5px;
-		cursor: pointer;
-		@media (max-width: 450px) {
-			font-size: 1em;
-			padding: 12.5px;
-		}
+		width: 90%;
 	}
 `;

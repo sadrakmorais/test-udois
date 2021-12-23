@@ -5,25 +5,21 @@ import { useAuth } from '../../hooks/useAuth';
 import logoGoogle from '../../assets/SignIN-SignUP/google.svg';
 import logoFace from '../../assets/SignIN-SignUP/face.svg';
 import ilustration2 from '../../assets/SignIN-SignUP/ilustr2.svg';
+import { useForm } from 'react-hook-form';
+import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const SignUp = () => {
 	const { user, signInWithGoogle } = useAuth();
 	const history = useNavigate();
 
-	const [errors, setErrors] = useState(false);
-	const [errorsPassword, setErrorsPassword] = useState(false);
-	const [errorsValidatePassword, setErrorsValidatePassword] = useState(false);
-	const [emailValue, setEmailValue] = useState('');
-	const [passwordValue, setPasswordValue] = useState('');
-	const [validatePasswordValue, setValidatePasswordValue] = useState('');
-
-	const handleErros = () => {
-		emailValue ? setErrors(false) : setErrors(true);
-		emailValue.includes('@') ? setErrors(false) : setErrors(true);
-		passwordValue ? setErrorsPassword(false) : setErrorsPassword(true);
-		validatePasswordValue ? setErrorsValidatePassword(false) : setErrorsValidatePassword(true);
-	};
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
+	const onSubmit = (data) => console.log(data);
 
 	useEffect(() => {
 		if (user) {
@@ -63,46 +59,57 @@ const SignUp = () => {
 				</S.Authentication>
 
 				<S.Form>
-					<TextField
-						sx={{ width: '100%' }}
-						required=''
-						error={errors}
-						id='filled-email-input'
-						label='E-MAIL'
-						type='email'
-						autoComplete='current-email'
-						variant='standard'
-						value={emailValue}
-						onChange={(e) => setEmailValue(e.target.value)}
-					/>
+					<form onSubmit={handleSubmit(onSubmit)} fullWidth>
+						<Box mb={1} fullWidth>
+							<TextField
+								variant='standard'
+								label='E-mail'
+								fullWidth
+								autoComplete='email'
+								autoFocus
+								{...register('email', {
+									required: ' ',
+									pattern: {
+										value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+									},
+								})}
+								error={!!errors?.email}
+								helperText={errors?.email ? errors.email.message : null}
+							/>
 
-					<TextField
-						sx={{ width: '100%' }}
-						required=''
-						error={errorsPassword}
-						id='filled-password-input'
-						label='SENHA'
-						type='password'
-						autoComplete='current-password'
-						variant='standard'
-						value={passwordValue}
-						onChange={(e) => setPasswordValue(e.target.value)}
-					/>
-
-					<TextField
-						sx={{ width: '100%' }}
-						required=''
-						error={errorsValidatePassword}
-						id='filled-password-input'
-						label='REPITA A SENHA'
-						type='password'
-						autoComplete='current-password'
-						variant='standard'
-						value={validatePasswordValue}
-						onChange={(e) => setValidatePasswordValue(e.target.value)}
-					/>
-
-					<button onClick={handleErros}>Cadastrar</button>
+							<TextField
+								variant='standard'
+								label='Senha'
+								fullWidth
+								type='password'
+								autoFocus
+								{...register('password', {
+									required: ' ',
+									minLength: 6,
+									maxLength: 12,
+								})}
+								error={!!errors?.password}
+								helperText={errors?.password ? errors.password.message : null}
+							/>
+							<TextField
+								variant='standard'
+								label='Confirme sua Senha'
+								fullWidth
+								type='password'
+								autoFocus
+								{...register('password', {
+									required: ' ',
+									minLength: 6,
+									maxLength: 12,
+								})}
+								error={!!errors?.password}
+								helperText={errors?.password ? errors.password.message : null}
+							/>
+						</Box>
+						<Button type='submit' variant='contained' color='success' fullWidth>
+							Cadastrar
+						</Button>
+					</form>
 				</S.Form>
 				<p>
 					Ao continuar, você concorda com os <strong>Termos de Serviço</strong> da UDOIS e

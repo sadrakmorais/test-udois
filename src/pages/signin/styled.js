@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
 	display: flex;
 	height: 100%;
 	align-items: center;
-	padding: 50px;
+	padding: 100px;
 	overflow-y: auto;
 
 	.ilustration {
@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 	}
 
 	.signin {
+		padding: 50px;
 		span {
 			padding: 0 20%;
 			margin-top: 30px;
@@ -41,12 +42,40 @@ export const Wrapper = styled.div`
 		align-items: center;
 		justify-content: center;
 
+		p {
+			margin-top: 10px;
+			padding: 0;
+			font-size: 1.2em;
+			cursor: pointer;
+		}
+
+		span {
+			margin-top: 10px;
+			padding: 0;
+			font-size: 1.2em;
+			cursor: pointer;
+		}
+
 		@media (max-width: 1025px) {
 			flex: 0;
 			width: 100%;
 			padding: 0 10%;
 			margin-top: 50px;
 			gap: 20px;
+
+			p {
+				margin-top: 10px;
+				padding: 0;
+				font-size: 1em;
+				cursor: pointer;
+			}
+
+			span {
+				margin-top: 10px;
+				padding: 0;
+				font-size: 1em;
+				cursor: pointer;
+			}
 		}
 
 		@media (max-width: 450px) {
@@ -55,10 +84,17 @@ export const Wrapper = styled.div`
 			margin-top: 20px;
 			gap: 10px;
 
+			p {
+				margin-top: 10px;
+				padding: 0;
+				font-size: 0.8em;
+				cursor: pointer;
+			}
+
 			span {
 				margin-top: 10px;
 				padding: 0;
-				font-size: 1em;
+				font-size: 0.8em;
 				cursor: pointer;
 			}
 
@@ -104,59 +140,22 @@ export const Authentication = styled.div`
 		}
 	}
 `;
-export const Form = styled.form`
-	width: 100%;
+export const Form = styled.div`
+	width: 85%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 0 20%;
 	gap: 30px;
+	form {
+		width: 100%;
+	}
 
 	@media (max-width: 1025px) {
-		padding: 0;
-		gap: 30px;
+		width: 90%;
 	}
 
 	@media (max-width: 450px) {
-		padding: 0;
-		gap: 15px;
-	}
-
-	p {
-		align-self: flex-start;
-		font-size: 1.5em;
-		cursor: pointer;
-
-		@media (max-width: 450px) {
-			font-size: 1em;
-		}
-	}
-
-	input {
-		width: 100%;
-		border: transparent;
-		border-bottom: 2px solid #595959;
-		padding: 10px 0;
-		font-size: 1.5em;
-		color: #a3a3a3;
-		@media (max-width: 450px) {
-			font-size: 1em;
-			padding: 8px 0;
-		}
-	}
-
-	button {
-		background: #34a853;
-		width: 100%;
-		padding: 16.5px;
-		font-size: 1.5em;
-		color: #fff;
-		border-radius: 5px;
-		cursor: pointer;
-		@media (max-width: 450px) {
-			font-size: 1em;
-			padding: 12.5px;
-		}
+		width: 90%;
 	}
 `;

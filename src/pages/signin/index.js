@@ -5,22 +5,23 @@ import logoGoogle from '../../assets/SignIN-SignUP/google.svg';
 import logoFace from '../../assets/SignIN-SignUP/face.svg';
 import ilustration1 from '../../assets/SignIN-SignUP/ilustr1.svg';
 import { useAuth } from '../../hooks/useAuth';
+import { useForm } from 'react-hook-form';
+import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const SignIn = () => {
 	const history = useNavigate();
 
 	const { user, signInWithGoogle, signInWithFacebook } = useAuth();
-	const [errors, setErrors] = useState(false);
-	const [errorsPassword, setErrorsPassword] = useState(false);
-	const [emailValue, setEmailValue] = useState('');
-	const [passwordValue, setPasswordValue] = useState('');
 
-	const handleErros = () => {
-		emailValue ? setErrors(false) : setErrors(true);
-		emailValue.includes('@') ? setErrors(false) : setErrors(true);
-		passwordValue ? setErrorsPassword(false) : setErrorsPassword(true);
-	};
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
+	const onSubmit = (data) => console.log(data);
+
 	useEffect(() => {
 		if (user) {
 			history('/');
@@ -62,35 +63,45 @@ const SignIn = () => {
 					</div>
 				</S.Authentication>
 				<S.Form>
-					<TextField
-						sx={{ width: '100%' }}
-						required=''
-						error={errors}
-						id='filled-email-input'
-						label='E-MAIL'
-						type='email'
-						autoComplete='current-email'
-						variant='standard'
-						value={emailValue}
-						onChange={(e) => setEmailValue(e.target.value)}
-					/>
+					<form onSubmit={handleSubmit(onSubmit)} fullWidth>
+						<Box mb={2} fullWidth>
+							<TextField
+								variant='standard'
+								label='E-mail'
+								fullWidth
+								autoComplete='email'
+								autoFocus
+								{...register('email', {
+									required: ' ',
+									pattern: {
+										value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+									},
+								})}
+								error={!!errors?.email}
+								helperText={errors?.email ? errors.email.message : null}
+							/>
 
-					<TextField
-						sx={{ width: '100%' }}
-						required=''
-						error={errorsPassword}
-						id='filled-password-input'
-						label='SENHA'
-						type='password'
-						autoComplete='current-password'
-						variant='standard'
-						value={passwordValue}
-						onChange={(e) => setPasswordValue(e.target.value)}
-					/>
+							<TextField
+								variant='standard'
+								label='Senha'
+								fullWidth
+								type='password'
+								autoFocus
+								{...register('password', {
+									required: ' ',
+									minLength: 6,
+									maxLength: 12,
+								})}
+								error={!!errors?.password}
+								helperText={errors?.password ? errors.password.message : null}
+							/>
 
-					<p>Esqueceu sua senha?</p>
-
-					<button onClick={handleErros}>Acessar</button>
+							<p>Esqueceu sua senha?</p>
+						</Box>
+						<Button type='submit' variant='contained' color='success' fullWidth>
+							Acessar
+						</Button>
+					</form>
 				</S.Form>
 				<span onClick={handleRegister}>Precisa de uma conta? Crie uma conta agora</span>
 			</div>
