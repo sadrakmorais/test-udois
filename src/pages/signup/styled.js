@@ -32,7 +32,12 @@ export const Wrapper = styled.div`
 		align-items: center;
 		justify-content: center;
 
-		p {
+		h2 {
+			font-size: 3em;
+			font-weight: 400;
+		}
+
+		h1 {
 			padding: 0 20%;
 			text-align: center;
 			font-size: 1.123em;
@@ -71,6 +76,11 @@ export const Wrapper = styled.div`
 			width: 100%;
 			margin-top: 20px;
 			gap: 10px;
+
+			h2 {
+				font-size: 1.5em;
+				font-weight: 400;
+			}
 
 			span {
 				margin-top: 10px;

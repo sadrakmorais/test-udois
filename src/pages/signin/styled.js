@@ -13,6 +13,11 @@ export const Wrapper = styled.div`
 
 	.signin {
 		padding: 50px;
+
+		h2 {
+			font-size: 3em;
+			font-weight: 400;
+		}
 		span {
 			padding: 0 20%;
 			margin-top: 30px;
@@ -41,12 +46,19 @@ export const Wrapper = styled.div`
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		padding: 50px;
 
-		p {
+		h2 {
+			font-size: 3em;
+			font-weight: 400;
+		}
+
+		h1 {
 			margin-top: 10px;
 			padding: 0;
 			font-size: 1.2em;
 			cursor: pointer;
+			font-weight: 400;
 		}
 
 		span {
@@ -63,11 +75,12 @@ export const Wrapper = styled.div`
 			margin-top: 50px;
 			gap: 20px;
 
-			p {
+			h1 {
 				margin-top: 10px;
 				padding: 0;
 				font-size: 1em;
 				cursor: pointer;
+				font-weight: 400;
 			}
 
 			span {
@@ -84,11 +97,12 @@ export const Wrapper = styled.div`
 			margin-top: 20px;
 			gap: 10px;
 
-			p {
+			h1 {
 				margin-top: 10px;
 				padding: 0;
 				font-size: 0.8em;
 				cursor: pointer;
+				font-weight: 400;
 			}
 
 			span {

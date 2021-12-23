@@ -52,7 +52,7 @@ const SignIn = () => {
 			</div>
 			<div className='signin'>
 				<S.Authentication>
-					<h1>Acessar</h1>
+					<h2>Acessar</h2>
 					<div>
 						<img
 							src={logoGoogle}
@@ -96,7 +96,7 @@ const SignIn = () => {
 								helperText={errors?.password ? errors.password.message : null}
 							/>
 
-							<p>Esqueceu sua senha?</p>
+							<h1>Esqueceu sua senha?</h1>
 						</Box>
 						<Button type='submit' variant='contained' color='success' fullWidth>
 							Acessar

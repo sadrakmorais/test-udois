@@ -47,7 +47,7 @@ const SignUp = () => {
 			</div>
 			<div className='signup'>
 				<S.Authentication>
-					<h1>Cadastrar</h1>
+					<h2>Cadastrar</h2>
 					<div>
 						<img
 							src={logoGoogle}
@@ -111,10 +111,10 @@ const SignUp = () => {
 						</Button>
 					</form>
 				</S.Form>
-				<p>
+				<h1>
 					Ao continuar, você concorda com os <strong>Termos de Serviço</strong> da UDOIS e
 					confirma que leu a nossa <strong>Política de Privacidade</strong>
-				</p>
+				</h1>
 
 				<span onClick={handleSignIN}>já é um membro? Entrar</span>
 			</div>
