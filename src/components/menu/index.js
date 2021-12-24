@@ -59,12 +59,12 @@ const Menu = () => {
 				<SettingsIcon />
 				Configurações
 			</li>
-
-			<li>
-				<QuizIcon />
-				Ajuda
-			</li>
-
+			<Link to='/ajuda'>
+				<li>
+					<QuizIcon />
+					Ajuda
+				</li>
+			</Link>
 			<li onClick={handleTest}>
 				<LogoutIcon />
 				Sair

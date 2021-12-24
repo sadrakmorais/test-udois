@@ -22,7 +22,7 @@ const NavBarHeader = ({ scroll }) => {
 	return (
 		<S.Container className={scroll ? ' scroll' : ''}>
 			<S.WrapperMenu className={searchBar ? 'searchON' : 'searchOFF'}>
-				{user?.accessLevel === 20 ? <MenuAdmin /> : <Menu />}
+				{user?.accessLevel === 10 ? <MenuAdmin /> : <Menu />}
 			</S.WrapperMenu>
 
 			<section className={searchBar ? 'searchON' : 'searchOFF'}>

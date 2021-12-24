@@ -8,6 +8,7 @@ import Layout from '../components/Layout';
 import SignIn from '../pages/signin';
 import SignUp from '../pages/signup';
 import AuthorPosts from '../pages/author-posts';
+import Fac from '../pages/fac';
 
 const ApplicationRoutes = () => {
 	return (
@@ -58,6 +59,15 @@ const ApplicationRoutes = () => {
 					element={
 						<Layout>
 							<AuthorPosts />
+						</Layout>
+					}
+				/>
+				<Route
+					exact
+					path='/ajuda'
+					element={
+						<Layout>
+							<Fac />
 						</Layout>
 					}
 				/>
