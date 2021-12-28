@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import * as S from './styled';
+import Chat from '../../components/chat-FAC';
+import useMessages from '../../hooks/useMessages';
 
 const Accordion = styled((props) => (
 	<MuiAccordion disableGutters elevation={0} square {...props} />
@@ -46,6 +47,12 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 const Fac = () => {
 	const [expanded, setExpanded] = useState('panel1');
+	const { messages } = useMessages();
+	const [newMessages, setNewMessages] = useState(messages.length);
+
+	useEffect(() => {
+		setNewMessages(messages.length);
+	}, [messages]);
 
 	const handleChange = (panel) => (event, newExpanded) => {
 		setExpanded(newExpanded ? panel : false);
@@ -135,11 +142,13 @@ const Fac = () => {
 						<AccordionSummary aria-controls='panel7d-content' id='panel7d-header'>
 							<div className='questionBox'>
 								<p>Perguntar</p>
-								<aside>1</aside>
+								<aside>{newMessages}</aside>
 							</div>
 						</AccordionSummary>
 						<AccordionDetails>
-							<section className='chat'>Chat Aqui</section>
+							<section className='chat'>
+								<Chat />
+							</section>
 						</AccordionDetails>
 					</Accordion>
 				</div>

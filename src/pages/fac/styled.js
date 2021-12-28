@@ -50,6 +50,7 @@ export const AccordionWrapper = styled.div`
 			justify-content: center;
 			color: #fff;
 			font-size: 4em;
+			overflow: hidden;
 		}
 	}
 `;

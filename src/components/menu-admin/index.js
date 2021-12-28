@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from './styled';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import LogoutIcon from '@mui/icons-material/Logout';

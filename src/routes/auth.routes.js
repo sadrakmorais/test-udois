@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import SignIn from '../pages/signin';
 import SignUp from '../pages/signup';
-import { useAuth } from '../hooks/useAuth';
 
 const ApplicationRoutes = () => {
 	return (
